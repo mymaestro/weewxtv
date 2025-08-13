@@ -1,0 +1,63 @@
+{
+    "stationInfo": {
+        "stationType": "$station.hardware",
+        "stationCity": "Austin",
+        "stationState": "TX",
+        "stationElevation": "$station.altitude",
+        "stationLatitude": "$station.latitude[0] $station.latitude[1]' $station.latitude[2]",
+        "stationLongitude": "$station.longitude[0] $station.longitude[1]' $station.longitude[2]"
+    },
+    "current": {
+        "datetime": "$current.dateTime.raw",
+        "feelslike": "$current.appTemp.format(add_label=False)",
+        "temperature": "$current.outTemp.format(add_label=False)",
+        "temptrend": "$trend($time_delta=300).outTemp.format(add_label=False)",
+        "temperature2": "$current.extraTemp1.format(add_label=False)",
+        "wind_chill": "$current.windchill.format(add_label=False)",
+        "humidity": "$current.outHumidity.format(add_label=False)",
+        "humidity2": "$current.extraHumid1.format(add_label=False)",
+        "heat_index": "$current.heatindex.format(add_label=False)",
+        "wind_direction": "$current.windDir.ordinal_compass.strip()",
+        "wind_direction_degrees": "$current.windDir.format(add_label=False).strip()",
+        "wind_speed": "$current.windSpeed.format(add_label=False).strip()",
+        "gust_speed": "$current.windGust.format(add_label=False).strip()",
+        "gust_direction_degrees": "$current.windGustDir.format(add_label=False).strip()",
+        "dewpoint": "$current.dewpoint.format(add_label=False)",
+        "barometer": "$current.barometer.format(add_label=False)",
+        "baromtrend": "$trend.barometer.format(add_label=False)",
+        "rain_rate": "$current.rainRate.format(add_label=False)",
+        "daily_rain": "$day.rain.sum.format(add_label=False)",
+        "last24_rain": "$span($day_delta=1).rain.sum.format(add_label=False)",
+        "monthly_rain": "$month.rain.sum.format(add_label=False)",
+        "total_rain": "$rainyear.rain.sum.format(add_label=False)",
+        "storm_rain": "$current.stormRain"
+    },
+    "highs": {
+        "temperature": "$day.outTemp.max.format(add_label=False)",
+        "temperature_time": "$day.outTemp.maxtime.raw",
+        "humidity": "$day.outHumidity.max.format(add_label=False)",
+        "humidity_time": "$day.outHumidity.maxtime.raw",
+        "dewpoint": "$day.dewpoint.max.format(add_label=False)",
+        "dewpoint_time": "$day.dewpoint.maxtime.raw",
+        "windspeed": "$day.wind.max.format(add_label=False)",
+        "windspeed_time": "$day.wind.maxtime.raw",
+        "barometer": "$day.barometer.max.format(add_label=False)",
+        "barometer_time": "$day.barometer.maxtime.raw",
+        "rain_rate": "$day.rainRate.max.format(add_label=False)",
+        "rain_rate_time": "$day.rainRate.maxtime.raw",
+        "heat_index": "$day.heatindex.max.format(add_label=False)",
+        "heat_index_time": "$day.heatindex.maxtime.raw"
+    },
+    "lows": {
+        "temperature": "$day.outTemp.min.format(add_label=False)",
+        "temperature_time": "$day.outTemp.mintime.raw",
+        "humidity": "$day.outHumidity.min.format(add_label=False)",
+        "humidity_time": "$day.outHumidity.mintime.raw",
+        "dewpoint": "$day.dewpoint.min.format(add_label=False)",
+        "dewpoint_time": "$day.dewpoint.mintime.raw",
+        "barometer": "$day.barometer.min.format(add_label=False)",
+        "barometer_time": "$day.barometer.mintime.raw",
+        "wind_chill": "$day.windchill.min.format(add_label=False)",
+        "wind_chill_time": "$day.windchill.mintime.raw"
+    }
+}

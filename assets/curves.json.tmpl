@@ -1,0 +1,21 @@
+{ "current" : { "datetime" : "$current.dateTime.raw"},
+  "monthly": [
+#for $m in $range(12)
+     {
+          "month": "$month($months_ago=$m).dateTime.format('%B')",
+          "min": $month($months_ago=$m).outTemp.min.nolabel('%.1f'),
+          "max": $month($months_ago=$m).outTemp.max.nolabel('%.1f')
+#if $m < 11
+     },
+#else
+     }
+#end if
+#end for
+  ],
+  "last24": [
+#for $_span in $span($hour_delta=24).spans(interval=1200)
+     { "datetime": "$_span.start.format('%r')", "temp": $_span.outTemp.avg.format(add_label=False), "dewpoint": $_span.dewpoint.avg.format(add_label=False), "humidity": $_span.outHumidity.avg.format(add_label=False), "windchill": $_span.windchill.avg.format(add_label=False), "heat_index": $_span.heatindex.avg.format(add_label=False), "barometer" : $_span.barometer.avg.format(add_label=False) },
+#end for
+     { "void_end" : null }
+  ]
+}

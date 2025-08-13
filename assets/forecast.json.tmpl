@@ -1,0 +1,78 @@
+#errorCatcher Echo
+## forecast skin for weewx - capture raw data to make a JSON file
+## $Id: forecast.json.tmpl $
+#encoding UTF-8
+#if $varExists('forecast')
+#import time
+#set $t0 = time.time()
+#set $forecast_source = 'NWS'
+#set $num_days = 7
+#set $show_wind = 1
+#set $show_pop = 1
+#set $show_precip = 1
+#set $show_clouds = 1
+#set $show_obvis = 0
+#set $local_settings = dict()
+## First look for values from skin.conf or weewx.conf
+#if $varExists('Extras') and $varExists('Extras.forecast_iconic_settings')
+#for $sv in $Extras.forecast_iconic_settings.keys()
+#set $local_settings[$sv] = $Extras.forecast_iconic_settings[$sv]
+#end for
+#end if
+## Now assign the values that will actually be used
+#set $forecast_source = $local_settings.get('source', $forecast_source)
+#set $num_days = int($local_settings.get('num_days', $num_days))
+#set $show_wind = $local_settings.get('show_wind', $show_wind)
+#set $show_clouds = $local_settings.get('show_clouds', $show_clouds)
+#set $show_pop = $local_settings.get('show_pop', $show_pop)
+#set $show_precip = $local_settings.get('show_precip', $show_precip)
+#set $show_obvis = $local_settings.get('show_obvis', $show_obvis)
+## pre-calculate the periods
+#set $num_periods = $num_days * 24
+#set $periods = $forecast.weather_periods($forecast_source, max_events=$num_periods)
+#if len($periods)
+#set $start_ts = $t0
+{
+  "current" : {
+    "datetime" : "$current.dateTime.raw"
+  },
+  "forecast": [
+#set $daycount = 0
+#for $d in range($num_days)
+#set $daycount = $daycount + 1
+#set $summary = $forecast.weather_summary($forecast_source, $start_ts + $d * 24*3600, periods=$periods)
+          {
+            "count": $daycount,
+            "date": "$summary.event_ts.format('%m/%d')",
+            "day": "$summary.event_ts.format('%a')",
+#if $summary.clouds is not None
+            "cover": "$summary.clouds",
+#end if
+            "hitemp": "$summary.tempMax.nolabel('%.0f')",
+            "lotemp": "$summary.tempMin.nolabel('%.0f')",
+#if $show_wind
+            "wind": "$summary.windChar",
+            "winddir": "$summary.windDir",
+            "windspeedmin": "$summary.windSpeedMin.nolabel('%.0f')",
+            "windspeedmax": "$summary.windSpeedMax.nolabel('%.0f')",
+#end if
+#if $show_pop
+            "precipchance": "$summary.pop.nolabel('%.0f').strip()",
+#end if
+#if $show_precip
+#set $ktypes = ''
+#for $k in $summary.precip
+#set $ktypes = $ktypes + $k + " "
+#end for
+            "preciptypes": "$ktypes.strip()"
+#end if
+#if $daycount < $num_days
+        },
+#else
+        }
+#end if
+#end for
+   ]
+}
+#end if
+#end if
