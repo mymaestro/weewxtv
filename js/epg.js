@@ -97,6 +97,9 @@ class TVGuide {
             error: (e) => {
                 console.error("Error loading TV data:", e);
                 $('#epgGrid').html('<div class="alert alert-danger">Error loading TV guide data from remote server. Please check your internet connection and that the XML file is available.</div>');
+                if (typeof showWarning === 'function') {
+                    showWarning('Unable to load TV guide data. Please check your connection or source server.');
+                }
             }
         });
         return;
@@ -263,27 +266,19 @@ class TVGuide {
 
     // Only render selected channels using the mapping
     renderSelectedChannelRows() {
-        console.log("Rendering channel grid.");
-        const selectedChannels = [
-            { label: "7-1 KTBCDT", id: this.channelMap["7-1 KTBCDT"] },
-            { label: "24-1 KVUEDT", id: this.channelMap["24-1 KVUEDT"] },
-            { label: "36-1 KXANDT", id: this.channelMap["36-1 KXANDT"] },
-            { label: "36-3 KXANDT3", id: this.channelMap["36-3 KXANDT3"] },
-            { label: "42-1 KEYEDT", id: this.channelMap["42-1 KEYEDT"] }
-        ];
+        // Dynamically derive selectedChannels from appConfig.channelMap
+        const channelMap = window.appConfig.channelMap;
+        const selectedChannels = Object.entries(channelMap).map(([label, id]) => ({ label, id }));
         let gridHTML = '';
         selectedChannels.forEach(sel => {
-            console.log(`Rendering channel: ${sel.label} (${sel.id})`);
             const channel = this.channels.find(c => c.id === sel.id);
             const [channelNumber, ...callsignParts] = sel.label.split(' ');
             const callsign = callsignParts.join(' ');
             if (channel) {
                 channel.displayNumber = channelNumber;
                 channel.displayCallsign = callsign;
-                let row2HTML = this.renderChannelRow(channel);
-                gridHTML += row2HTML;
+                gridHTML += this.renderChannelRow(channel);
             } else {
-                console.log("This ain't right");
                 gridHTML += `<div class="epg-row d-flex" style="min-width: 100%;">
                     <div class="epg-channel flex-shrink-0" style="width: ${this.channelWidth}px;">
                         <div class="fw-bold channel-number" style="font-size:2.2em;line-height:1;">${channelNumber}</div>
@@ -295,7 +290,6 @@ class TVGuide {
                 </div>`;
             }
         });
-        
         $('#epgGrid').html(gridHTML);
         this.initializeTooltips();
     }
@@ -660,3 +654,21 @@ $(document).ready(function() {
     // Create EPG instance
     window.tvGuide = new TVGuide();
 });
+
+// Example AJAX/fetch usage for TV XML
+function fetchTVXml() {
+    fetch(window.appConfig.tvXmlUrl)
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+        })
+        .then(xmlText => {
+            // ...parse and use xmlText...
+        })
+        .catch(error => {
+            if (typeof showWarning === 'function') {
+                showWarning('Unable to load TV guide data. Please check your connection or source server.');
+            }
+            console.error('TV XML fetch error:', error);
+        });
+}

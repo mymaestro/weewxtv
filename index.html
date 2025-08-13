@@ -294,6 +294,16 @@
     <script src="js/charts.js"></script>
     <script src="js/xml2json.js"></script>
     <script src="js/epg.js"></script>
+    <script>
+    // Utility to show warning messages in #warning-header
+    function showWarning(message) {
+        var warningDiv = document.getElementById('warning-header');
+        if (warningDiv) {
+            warningDiv.style.display = 'block';
+            warningDiv.innerHTML = '<div class="text-center"><h2 class="display-4 text-light">' + message + '</h2></div>';
+        }
+    }
+    </script>
 </body>
 
 </html>

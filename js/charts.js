@@ -94,7 +94,13 @@ function getCurrentWeatherData() {
                 $('#lastUpdate').text(aDate.toLocaleString());
                 $('#currentTemperature').text(currentTemperature);
                 console.log("Last update: " + aDate.toLocaleString());
+            },
+        error:(e) => {
+            console.error("Error fetching current weather data: ", e);
+            if (typeof showWarning === 'function') {
+                showWarning('Unable to load current weather data. Please check your connection or source server.');
             }
+        }
     });
 };
 getCurrentWeatherData();
@@ -130,7 +136,7 @@ function drawLineChart() {
     $.ajax({
         url: curvesJsonUrl,
         dataType: 'json',
-    }).done(function (results) {
+        success: function (results) {
         var processedData = processData(results.last24);
         var lineData = {
             labels: processedData.labels,
@@ -179,6 +185,13 @@ function drawLineChart() {
                 }
             }
         });
+        },
+        error:(e) => {
+            console.error("Error fetching current weather data: ", e);
+            if (typeof showWarning === 'function') {
+                showWarning('Unable to load current weather data. Please check your connection or source server.');
+            }
+        }
     });
 };
 drawLineChart();
@@ -380,3 +393,21 @@ function getForecastData() {
     });
 };
 getForecastData();
+
+// Example AJAX/fetch usage for weather data
+function fetchWeatherData() {
+    fetch(window.appConfig.weatherDataUrl)
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+        })
+        .then(xmlText => {
+            // ...parse and use xmlText...
+        })
+        .catch(error => {
+            if (typeof showWarning === 'function') {
+                showWarning('Unable to load weather data. Please check your connection or source server.');
+            }
+            console.error('Weather data fetch error:', error);
+        });
+}
