@@ -1,6 +1,6 @@
 // Centralized configuration for weewxtv app
 // Other JS files should import or reference this for settings
-// Working configs
+// Copy this to appConfig.js before starting
 
 const appConfig = {
     weatherDataUrl: "http://tv.local/assets/weather.json", // Set your weather data URL here
