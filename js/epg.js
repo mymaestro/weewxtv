@@ -23,6 +23,7 @@ class TVGuide {
     this.loadTVData();
     this.updateCurrentTime();
     setInterval(() => this.updateCurrentTime(), 599993); // Update every (almost) 10 minutes
+    setInterval(() => this.loadTVData(), 599993); // Update every (almost) 10 minutes
     }
 
     setupEventListeners() {
