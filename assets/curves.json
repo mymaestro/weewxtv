@@ -1,0 +1,139 @@
+{ "current" : { "datetime" : "1754963700"},
+  "monthly": [
+     {
+          "month": "August",
+          "min": 71.4,
+          "max": 100.6
+     },
+     {
+          "month": "July",
+          "min": 67.9,
+          "max": 102.0
+     },
+     {
+          "month": "June",
+          "min": 67.0,
+          "max": 97.3
+     },
+     {
+          "month": "May",
+          "min": 53.8,
+          "max": 100.4
+     },
+     {
+          "month": "April",
+          "min": 40.0,
+          "max": 91.5
+     },
+     {
+          "month": "March",
+          "min": 38.3,
+          "max": 96.5
+     },
+     {
+          "month": "February",
+          "min": 17.5,
+          "max": 88.0
+     },
+     {
+          "month": "January",
+          "min": 20.3,
+          "max": 74.3
+     },
+     {
+          "month": "December",
+          "min": 33.2,
+          "max": 88.4
+     },
+     {
+          "month": "November",
+          "min": 37.9,
+          "max": 88.3
+     },
+     {
+          "month": "October",
+          "min": 47.9,
+          "max": 100.5
+     },
+     {
+          "month": "September",
+          "min": 59.7,
+          "max": 100.6
+     }
+  ],
+  "last24": [
+     { "datetime": "08:55:00 PM", "temp": 87.8, "dewpoint": 74.4, "humidity": 65, "windchill": 87.8, "heat_index": 97.0, "barometer" : 29.764 },
+     { "datetime": "09:15:00 PM", "temp": 86.9, "dewpoint": 74.1, "humidity": 66, "windchill": 86.9, "heat_index": 95.4, "barometer" : 29.767 },
+     { "datetime": "09:35:00 PM", "temp": 86.0, "dewpoint": 73.5, "humidity": 66, "windchill": 86.0, "heat_index": 93.6, "barometer" : 29.769 },
+     { "datetime": "09:55:00 PM", "temp": 85.3, "dewpoint": 73.5, "humidity": 68, "windchill": 85.3, "heat_index": 92.6, "barometer" : 29.771 },
+     { "datetime": "10:15:00 PM", "temp": 84.7, "dewpoint": 73.4, "humidity": 69, "windchill": 84.7, "heat_index": 91.6, "barometer" : 29.776 },
+     { "datetime": "10:35:00 PM", "temp": 84.1, "dewpoint": 73.6, "humidity": 71, "windchill": 84.1, "heat_index": 91.0, "barometer" : 29.779 },
+     { "datetime": "10:55:00 PM", "temp": 83.7, "dewpoint": 73.8, "humidity": 72, "windchill": 83.7, "heat_index": 90.5, "barometer" : 29.784 },
+     { "datetime": "11:15:00 PM", "temp": 83.1, "dewpoint": 73.5, "humidity": 73, "windchill": 83.1, "heat_index": 89.4, "barometer" : 29.787 },
+     { "datetime": "11:35:00 PM", "temp": 82.8, "dewpoint": 73.3, "humidity": 73, "windchill": 82.8, "heat_index": 88.8, "barometer" : 29.789 },
+     { "datetime": "11:55:00 PM", "temp": 82.3, "dewpoint": 73.3, "humidity": 74, "windchill": 82.3, "heat_index": 88.0, "barometer" : 29.794 },
+     { "datetime": "12:15:00 AM", "temp": 81.5, "dewpoint": 73.0, "humidity": 76, "windchill": 81.5, "heat_index": 86.6, "barometer" : 29.796 },
+     { "datetime": "12:35:00 AM", "temp": 80.6, "dewpoint": 72.6, "humidity": 77, "windchill": 80.6, "heat_index": 85.0, "barometer" : 29.799 },
+     { "datetime": "12:55:00 AM", "temp": 80.2, "dewpoint": 72.7, "humidity": 78, "windchill": 80.2, "heat_index": 84.3, "barometer" : 29.800 },
+     { "datetime": "01:15:00 AM", "temp": 79.8, "dewpoint": 72.6, "humidity": 79, "windchill": 79.8, "heat_index": 83.7, "barometer" : 29.796 },
+     { "datetime": "01:35:00 AM", "temp": 79.7, "dewpoint": 73.0, "humidity": 80, "windchill": 79.7, "heat_index": 83.7, "barometer" : 29.797 },
+     { "datetime": "01:55:00 AM", "temp": 79.8, "dewpoint": 73.2, "humidity": 80, "windchill": 79.8, "heat_index": 83.8, "barometer" : 29.796 },
+     { "datetime": "02:15:00 AM", "temp": 79.8, "dewpoint": 73.4, "humidity": 81, "windchill": 79.8, "heat_index": 83.8, "barometer" : 29.794 },
+     { "datetime": "02:35:00 AM", "temp": 79.3, "dewpoint": 73.2, "humidity": 82, "windchill": 79.3, "heat_index": 81.9, "barometer" : 29.791 },
+     { "datetime": "02:55:00 AM", "temp": 78.8, "dewpoint": 73.0, "humidity": 82, "windchill": 78.8, "heat_index": 80.2, "barometer" : 29.786 },
+     { "datetime": "03:15:00 AM", "temp": 78.2, "dewpoint": 72.8, "humidity": 84, "windchill": 78.2, "heat_index": 79.6, "barometer" : 29.784 },
+     { "datetime": "03:35:00 AM", "temp": 77.5, "dewpoint": 72.4, "humidity": 84, "windchill": 77.5, "heat_index": 78.9, "barometer" : 29.788 },
+     { "datetime": "03:55:00 AM", "temp": 77.2, "dewpoint": 72.6, "humidity": 86, "windchill": 77.2, "heat_index": 78.6, "barometer" : 29.779 },
+     { "datetime": "04:15:00 AM", "temp": 77.3, "dewpoint": 72.8, "humidity": 86, "windchill": 77.3, "heat_index": 78.8, "barometer" : 29.777 },
+     { "datetime": "04:35:00 AM", "temp": 77.1, "dewpoint": 72.7, "humidity": 86, "windchill": 77.1, "heat_index": 78.6, "barometer" : 29.777 },
+     { "datetime": "04:55:00 AM", "temp": 76.5, "dewpoint": 72.3, "humidity": 87, "windchill": 76.5, "heat_index": 77.9, "barometer" : 29.776 },
+     { "datetime": "05:15:00 AM", "temp": 76.0, "dewpoint": 71.9, "humidity": 87, "windchill": 76.0, "heat_index": 77.3, "barometer" : 29.781 },
+     { "datetime": "05:35:00 AM", "temp": 75.7, "dewpoint": 71.8, "humidity": 88, "windchill": 75.7, "heat_index": 77.1, "barometer" : 29.784 },
+     { "datetime": "05:55:00 AM", "temp": 75.4, "dewpoint": 71.7, "humidity": 88, "windchill": 75.4, "heat_index": 76.8, "barometer" : 29.789 },
+     { "datetime": "06:15:00 AM", "temp": 75.3, "dewpoint": 71.8, "humidity": 89, "windchill": 75.3, "heat_index": 76.7, "barometer" : 29.798 },
+     { "datetime": "06:35:00 AM", "temp": 75.3, "dewpoint": 72.0, "humidity": 90, "windchill": 75.3, "heat_index": 76.7, "barometer" : 29.806 },
+     { "datetime": "06:55:00 AM", "temp": 75.2, "dewpoint": 72.0, "humidity": 90, "windchill": 75.2, "heat_index": 76.6, "barometer" : 29.821 },
+     { "datetime": "07:15:00 AM", "temp": 75.3, "dewpoint": 72.3, "humidity": 90, "windchill": 75.3, "heat_index": 76.8, "barometer" : 29.829 },
+     { "datetime": "07:35:00 AM", "temp": 76.9, "dewpoint": 73.6, "humidity": 90, "windchill": 76.9, "heat_index": 78.5, "barometer" : 29.832 },
+     { "datetime": "07:55:00 AM", "temp": 79.3, "dewpoint": 74.8, "humidity": 86, "windchill": 79.3, "heat_index": 82.6, "barometer" : 29.843 },
+     { "datetime": "08:15:00 AM", "temp": 81.2, "dewpoint": 75.6, "humidity": 83, "windchill": 81.2, "heat_index": 87.6, "barometer" : 29.843 },
+     { "datetime": "08:35:00 AM", "temp": 82.7, "dewpoint": 76.3, "humidity": 81, "windchill": 82.7, "heat_index": 90.8, "barometer" : 29.844 },
+     { "datetime": "08:55:00 AM", "temp": 83.8, "dewpoint": 76.5, "humidity": 79, "windchill": 83.8, "heat_index": 93.0, "barometer" : 29.843 },
+     { "datetime": "09:15:00 AM", "temp": 84.5, "dewpoint": 76.3, "humidity": 76, "windchill": 84.5, "heat_index": 94.0, "barometer" : 29.844 },
+     { "datetime": "09:35:00 AM", "temp": 85.1, "dewpoint": 76.1, "humidity": 74, "windchill": 85.1, "heat_index": 94.8, "barometer" : 29.842 },
+     { "datetime": "09:55:00 AM", "temp": 86.7, "dewpoint": 76.4, "humidity": 72, "windchill": 86.7, "heat_index": 97.5, "barometer" : 29.838 },
+     { "datetime": "10:15:00 AM", "temp": 87.2, "dewpoint": 76.4, "humidity": 70, "windchill": 87.2, "heat_index": 98.2, "barometer" : 29.834 },
+     { "datetime": "10:35:00 AM", "temp": 88.2, "dewpoint": 76.1, "humidity": 68, "windchill": 88.2, "heat_index": 99.5, "barometer" : 29.834 },
+     { "datetime": "10:55:00 AM", "temp": 88.7, "dewpoint": 75.4, "humidity": 65, "windchill": 88.7, "heat_index": 99.3, "barometer" : 29.835 },
+     { "datetime": "11:15:00 AM", "temp": 89.8, "dewpoint": 75.9, "humidity": 64, "windchill": 89.8, "heat_index": 101.5, "barometer" : 29.833 },
+     { "datetime": "11:35:00 AM", "temp": 90.2, "dewpoint": 76.2, "humidity": 64, "windchill": 90.2, "heat_index": 102.3, "barometer" : 29.829 },
+     { "datetime": "11:55:00 AM", "temp": 90.9, "dewpoint": 76.1, "humidity": 62, "windchill": 90.9, "heat_index": 103.2, "barometer" : 29.824 },
+     { "datetime": "12:15:00 PM", "temp": 91.9, "dewpoint": 76.5, "humidity": 61, "windchill": 91.9, "heat_index": 105.2, "barometer" : 29.823 },
+     { "datetime": "12:35:00 PM", "temp": 92.1, "dewpoint": 75.3, "humidity": 58, "windchill": 92.1, "heat_index": 103.7, "barometer" : 29.822 },
+     { "datetime": "12:55:00 PM", "temp": 92.4, "dewpoint": 75.3, "humidity": 58, "windchill": 92.4, "heat_index": 104.1, "barometer" : 29.812 },
+     { "datetime": "01:15:00 PM", "temp": 93.0, "dewpoint": 75.0, "humidity": 56, "windchill": 93.0, "heat_index": 104.6, "barometer" : 29.805 },
+     { "datetime": "01:35:00 PM", "temp": 93.2, "dewpoint": 75.5, "humidity": 57, "windchill": 93.2, "heat_index": 105.5, "barometer" : 29.794 },
+     { "datetime": "01:55:00 PM", "temp": 93.8, "dewpoint": 75.7, "humidity": 56, "windchill": 93.8, "heat_index": 106.6, "barometer" : 29.779 },
+     { "datetime": "02:15:00 PM", "temp": 95.1, "dewpoint": 74.4, "humidity": 52, "windchill": 95.1, "heat_index": 106.5, "barometer" : 29.770 },
+     { "datetime": "02:35:00 PM", "temp": 96.0, "dewpoint": 74.9, "humidity": 51, "windchill": 96.0, "heat_index": 108.6, "barometer" : 29.763 },
+     { "datetime": "02:55:00 PM", "temp": 96.0, "dewpoint": 74.9, "humidity": 51, "windchill": 96.0, "heat_index": 108.5, "barometer" : 29.751 },
+     { "datetime": "03:15:00 PM", "temp": 95.4, "dewpoint": 74.2, "humidity": 51, "windchill": 95.4, "heat_index": 106.7, "barometer" : 29.745 },
+     { "datetime": "03:35:00 PM", "temp": 95.2, "dewpoint": 74.8, "humidity": 52, "windchill": 95.2, "heat_index": 107.2, "barometer" : 29.737 },
+     { "datetime": "03:55:00 PM", "temp": 96.5, "dewpoint": 74.9, "humidity": 50, "windchill": 96.5, "heat_index": 109.0, "barometer" : 29.730 },
+     { "datetime": "04:15:00 PM", "temp": 96.5, "dewpoint": 73.8, "humidity": 48, "windchill": 96.5, "heat_index": 107.6, "barometer" : 29.721 },
+     { "datetime": "04:35:00 PM", "temp": 96.9, "dewpoint": 74.9, "humidity": 50, "windchill": 96.9, "heat_index": 109.6, "barometer" : 29.718 },
+     { "datetime": "04:55:00 PM", "temp": 96.3, "dewpoint": 74.0, "humidity": 49, "windchill": 96.3, "heat_index": 107.7, "barometer" : 29.715 },
+     { "datetime": "05:15:00 PM", "temp": 95.1, "dewpoint": 73.8, "humidity": 50, "windchill": 95.1, "heat_index": 105.9, "barometer" : 29.716 },
+     { "datetime": "05:35:00 PM", "temp": 95.3, "dewpoint": 74.0, "humidity": 50, "windchill": 95.3, "heat_index": 106.4, "barometer" : 29.714 },
+     { "datetime": "05:55:00 PM", "temp": 94.7, "dewpoint": 74.3, "humidity": 52, "windchill": 94.7, "heat_index": 105.9, "barometer" : 29.712 },
+     { "datetime": "06:15:00 PM", "temp": 94.7, "dewpoint": 74.0, "humidity": 52, "windchill": 94.7, "heat_index": 105.6, "barometer" : 29.710 },
+     { "datetime": "06:35:00 PM", "temp": 94.4, "dewpoint": 74.6, "humidity": 53, "windchill": 94.4, "heat_index": 105.9, "barometer" : 29.707 },
+     { "datetime": "06:55:00 PM", "temp": 93.7, "dewpoint": 74.5, "humidity": 54, "windchill": 93.7, "heat_index": 104.8, "barometer" : 29.708 },
+     { "datetime": "07:15:00 PM", "temp": 92.8, "dewpoint": 74.3, "humidity": 55, "windchill": 92.8, "heat_index": 103.5, "barometer" : 29.708 },
+     { "datetime": "07:35:00 PM", "temp": 91.2, "dewpoint": 74.8, "humidity": 59, "windchill": 91.2, "heat_index": 102.0, "barometer" : 29.711 },
+     { "datetime": "07:55:00 PM", "temp": 89.8, "dewpoint": 74.0, "humidity": 60, "windchill": 89.8, "heat_index": 99.3, "barometer" : 29.715 },
+     { "datetime": "08:15:00 PM", "temp": 88.6, "dewpoint": 73.8, "humidity": 62, "windchill": 88.6, "heat_index": 97.3, "barometer" : 29.715 },
+     { "datetime": "08:35:00 PM", "temp": 87.7, "dewpoint": 73.7, "humidity": 64, "windchill": 87.7, "heat_index": 96.1, "barometer" : 29.718 },
+     { "void_end" : null }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+    "stationInfo": {
+        "stationType": "Vantage Pro2",
+        "stationCity": "Austin",
+        "stationState": "TX",
+        "stationElevation": "564 feet",
+        "stationLatitude": "30 20.70' N",
+        "stationLongitude": "097 36.72' W"
+    },
+    "current": {
+        "datetime": "1754963700",
+        "feelslike": "97.0",
+        "temperature": "87.4",
+        "temptrend": "-0.2",
+        "temperature2": "92.0",
+        "wind_chill": "87.4",
+        "humidity": "64",
+        "humidity2": "57",
+        "heat_index": "95.7",
+        "wind_direction": "NNW",
+        "wind_direction_degrees": "N/A",
+        "wind_speed": "0",
+        "gust_speed": "0",
+        "gust_direction_degrees": "N/A",
+        "dewpoint": "73.7",
+        "barometer": "29.718",
+        "baromtrend": "0.004",
+        "rain_rate": "0.00",
+        "daily_rain": "0.00",
+        "last24_rain": "0.00",
+        "monthly_rain": "0.07",
+        "total_rain": "19.62",
+        "storm_rain": "0.00 in"
+    },
+    "highs": {
+        "temperature": "97.3",
+        "temperature_time": "1754948962",
+        "humidity": "91",
+        "humidity_time": "1754915441",
+        "dewpoint": "77.5",
+        "dewpoint_time": "1754932992",
+        "windspeed": "11",
+        "windspeed_time": "1754955199",
+        "barometer": "29.844",
+        "barometer_time": "1754918943",
+        "rain_rate": "0.00",
+        "rain_rate_time": "1754888401",
+        "heat_index": "111.9",
+        "heat_index_time": "1754942196"
+    },
+    "lows": {
+        "temperature": "75.0",
+        "temperature_time": "1754914901",
+        "humidity": "47",
+        "humidity_time": "1754947216",
+        "dewpoint": "71.5",
+        "dewpoint_time": "1754910115",
+        "barometer": "29.705",
+        "barometer_time": "1754957645",
+        "wind_chill": "75.0",
+        "wind_chill_time": "1754914901"
+    }
+}

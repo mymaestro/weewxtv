@@ -1,0 +1,508 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  color: #5a5a5a;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 3rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+/* Here is where you change the height of the carousel */
+.carousel-item {
+  height: 700px;
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+}
+
+.carousel-hero {
+  font-size: 300px;
+}
+
+.carousel-warning {
+ /* height: 8rem;*/
+  color:white;
+  background-color: crimson;
+}
+
+#forecastTable th,
+#forecastTable td {
+  background-color: #337 !important;
+  color: #fff;
+}
+
+/* EPG content */
+
+.icon-list li::before {
+  display: block;
+  flex-shrink: 0;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: .5rem;
+  content: "";
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+}
+
+/* Kiosk-Style EPG Styles */
+body {
+  font-size: 18px; /* Larger base font size */
+  line-height: 1.4;
+}
+
+.channel-number {
+  font-size: 2rem !important; /* Very large channel numbers */
+  font-weight: 800;
+  color: #86ace6;
+  line-height: 1;
+}
+
+.channel-name {
+  font-size: 1.1rem !important; /* Large channel names */
+  font-weight: 600;
+  color: #495057;
+  margin-top: 5px;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.channel-header-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.time-header-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+.channel-logo {
+  width: 40px; /* Larger logos */
+  height: 40px;
+  margin-right: 12px;
+  border-radius: 4px;
+}
+
+/* EPG Specific Styles */
+.epg-row {
+  border-bottom: 2px solid #dee2e6;
+  min-height: 120px; /* Much taller rows */
+  white-space: nowrap;
+}
+
+.epg-channel, .epg-channel-header {
+  position: sticky;
+  left: 0;
+  background: #000000;
+  border-right: 3px solid #dee2e6;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 1.2rem; /* Larger channel text */
+}
+
+.epg-programs-container {
+  flex-wrap: nowrap !important;
+}
+
+.epg-slot {
+  padding: 4px;
+  border-right: 2px solid #e9ecef;
+}
+
+/* Time headers container */
+#timeHeaders {
+  position: sticky;
+  top: 76px;
+  z-index: 100;
+  background: #f8f9fa;
+  border-bottom: 3px solid #dee2e6;
+  overflow-x: auto;
+  white-space: nowrap;
+  min-height: 80px; /* Taller header */
+}
+
+/* EPG Grid with horizontal scroll */
+#epgGrid {
+  max-height: 85vh; /* More vertical space */
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+/* Ensure horizontal scrolling works */
+.container-fluid {
+  overflow-x: auto;
+}
+
+.time-slot {
+  background: #f8f9fa;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.epg-program {
+  border: 2px solid #616568;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 12px 15px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: rgb(143, 140, 140);
+  font-size: 1.1rem; /* Much larger program text */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 108px; /* Much taller program cells */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: calc(100% - 8px); /* Account for margin */
+}
+
+.epg-program:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+  z-index: 60;
+}
+
+.epg-program.current {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+  box-shadow: 0 0 10px rgba(40,167,69,0.5);
+}
+
+.epg-program .title {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2px;
+  font-size: 3.5em; /* Larger title text */
+}
+
+.epg-program .time {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.epg-program .description {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  line-height: 1.1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.time-slot {
+  min-width: 200px;
+  text-align: center;
+  font-weight: 600;
+  padding: 8px 4px;
+  border-right: 1px solid #dee2e6;
+  background: #f8f9fa;
+}
+
+.current-time-marker {
+  position: absolute;
+  width: 2px;
+  background: #dc3545;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  box-shadow: 0 0 4px rgba(220,53,69,0.6);
+  pointer-events: none;
+}
+
+.channel-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.epg-program.epg-program-merged {
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.epg-program.epg-program-merged:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.epg-program.epg-program-merged.current {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  animation: pulse-current 2s infinite;
+}
+
+@keyframes pulse-current {
+  0% { box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  50% { box-shadow: 0 4px 16px rgba(255,215,0,0.5); }
+  100% { box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+}
+
+.epg-program .duration {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-size: 0.65rem;
+  opacity: 0.8;
+  background: rgba(0,0,0,0.2);
+  color: white;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.epg-program .category-badge {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.6rem;
+  opacity: 0.8;
+  background: rgba(0,0,0,0.2);
+  color: white;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.epg-program .title {
+  font-weight: 700; /* Bolder titles */
+  line-height: 1.3;
+  margin-bottom: 4px;
+  padding-right: 80px; /* Make room for category badge */
+  font-size: 1.2rem; /* Larger title text */
+}
+
+.epg-program .time {
+  font-size: 1rem; /* Larger time text */
+  opacity: 0.95;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.epg-program .description {
+  font-size: 0.9rem; /* Larger description text */
+  opacity: 0.9;
+  line-height: 1.2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding-bottom: 25px; /* Make room for duration */
+}
+
+.epg-program .duration {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-size: 0.8rem; /* Larger duration text */
+  opacity: 0.9;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.epg-program .category-badge {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 0.75rem; /* Larger category badge */
+  opacity: 0.9;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Category Legend Styles */
+#categoryLegend .badge {
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.category-color-dot {
+  flex-shrink: 0;
+}
+
+/* Improved program hover states for color-coded programs */
+.epg-program[data-category]:hover {
+  opacity: 0.9;
+  filter: brightness(1.1);
+}
+
+/* Animation for currently airing programs */
+.epg-program.current {
+  position: relative;
+}
+
+.epg-program.current::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  border-radius: 8px;
+  z-index: -1;
+  animation: golden-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes golden-glow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+.epg-program.no-program {
+  font-style: italic;
+  text-align: center;
+}
+
+.epg-program.no-program .title {
+  font-weight: 400;
+  font-size: 4.8rem;
+}
+
+/* Performance optimizations for large channel lists */
+.epg-row {
+  contain: layout style;
+}
+
+/* Improved scrolling for large datasets */
+#epgGrid {
+  max-height: 80vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for better UX with many channels */
+#epgGrid::-webkit-scrollbar {
+  width: 12px;
+}
+
+#epgGrid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+
+#epgGrid::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+  border: 2px solid #f1f1f1;
+}
+
+#epgGrid::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .epg-channel {
+    font-size: 0.8rem;
+    padding: 4px;
+  }
+  
+  .epg-program {
+    font-size: 0.75rem;
+    height: 45px;
+    padding: 2px 4px;
+  }
+  
+  .time-slot {
+    min-width: 150px;
+    font-size: 0.9rem;
+  }
+  
+  #epgGrid {
+    max-height: 70vh;
+  }
+}
+
+/* Scrollbar styling */
+.container-fluid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.container-fluid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.container-fluid::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.container-fluid::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+/* rtl:end:ignore */
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+}
