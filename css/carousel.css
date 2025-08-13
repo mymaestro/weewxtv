@@ -70,10 +70,9 @@ body {
 }
 
 .channel-number {
-  font-size: 2rem !important; /* Very large channel numbers */
+  font-size: 3.9rem !important; /* Very large channel numbers */
   font-weight: 800;
   color: #86ace6;
-  line-height: 1;
 }
 
 .channel-name {
@@ -198,9 +197,7 @@ body {
 
 .epg-program .title {
   font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 2px;
-  font-size: 3.5em; /* Larger title text */
+  font-size: 3.9rem; /* Larger title text */
 }
 
 .epg-program .time {
@@ -299,10 +296,7 @@ body {
 
 .epg-program .title {
   font-weight: 700; /* Bolder titles */
-  line-height: 1.3;
-  margin-bottom: 4px;
-  padding-right: 80px; /* Make room for category badge */
-  font-size: 1.2rem; /* Larger title text */
+  font-size: 3.9rem; /* Larger title text */
 }
 
 .epg-program .time {
@@ -400,7 +394,7 @@ body {
 
 .epg-program.no-program .title {
   font-weight: 400;
-  font-size: 4.8rem;
+  font-size: 3.9rem;
 }
 
 /* Performance optimizations for large channel lists */

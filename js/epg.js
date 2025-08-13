@@ -1,14 +1,12 @@
+// Use appConfig for TV data URLs
+const channelMap = window.appConfig.channelMap;
+const tvXmlUrl = window.appConfig.tvXmlUrl;
+
 // Electronic Program Guide (EPG) Implementation
 class TVGuide {
     constructor() {
         // Map display channel/callsign to XML channel id
-        this.channelMap = {
-            "7-1 KTBCDT": "I31222.labs.zap2it.com",
-            "24-1 KVUEDT": "I33585.labs.zap2it.com",
-            "36-1 KXANDT": "I25147.labs.zap2it.com",
-            "36-3 KXANDT3": "I40468.labs.zap2it.com",
-            "42-1 KEYEDT": "I33424.labs.zap2it.com"
-        };
+        this.channelMap = channelMap;
         this.channels = [];
         this.programs = [];
         this.currentTime = new Date();
@@ -83,11 +81,13 @@ class TVGuide {
     }
 
     loadTVData() {
-        // To load from a remote server in the future, uncomment the following block:
-        /*
+        // Use appConfig for TV XML URL and channelMap
+        const tvXmlUrl = window.appConfig.tvXmlUrl;
+        const channelMap = window.appConfig.channelMap;
+
         $.ajax({
             type: "GET",
-            url: "http://tank.fishparts.net/tv/tv.xml",
+            url: tvXmlUrl,
             dataType: "xml",
             success: (xml) => {
                 this.parseXMLData(xml);
@@ -100,23 +100,6 @@ class TVGuide {
             }
         });
         return;
-        */
-        $('#epgGrid').html('<div class="text-center p-4"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div><p class="mt-2">Loading TV Guide...</p></div>');
-        
-        $.ajax({
-            type: "GET",
-            url: "assets/tv.xml",
-            dataType: "xml",
-            success: (xml) => {
-                this.parseXMLData(xml);
-                this.adjustTimeForData();
-                this.renderEPG();
-            },
-            error: (e) => {
-                console.error("Error loading TV data:", e);
-                $('#epgGrid').html('<div class="alert alert-danger">Error loading TV guide data from local file. Please check that assets/tv.xml is available.</div>');
-            }
-        });
     }
 
     parseXMLData(xml) {
@@ -563,25 +546,26 @@ class TVGuide {
         // Define color schemes for different program categories
         const categoryColors = {
             // Entertainment
-            'Comedy': { background: '#fff3cd', text: '#856404', accent: '#ffc107' },
-            'Reality': { background: '#f8d7da', text: '#721c24', accent: '#dc3545' },
-            'Game Show': { background: '#d4edda', text: '#155724', accent: '#28a745' },
-            'Talk': { background: '#cce5ff', text: '#004085', accent: '#007bff' },
-            'Variety': { background: '#e2e3e5', text: '#383d41', accent: '#6c757d' },
+            'Comedy': { background: '#634d06ff', text: '#ca9a0aff', accent: '#ffc107' },
+            'Reality': { background: '#42292bff', text: '#be3240ff', accent: '#dc3545' },
+            'Game Show': { background: '#284930ff', text: '#2cad4aff', accent: '#28a745' },
+            'Talk': { background: '#132130ff', text: '#a1beddff', accent: '#007bff' },
+            'Variety': { background: '#53555aff', text: '#aebdc9ff', accent: '#6c757d' },
             
             // Drama & Action
-            'Drama': { background: '#e7d4f7', text: '#4a154b', accent: '#6f42c1' },
-            'Action': { background: '#ffebe6', text: '#a0522d', accent: '#fd7e14' },
-            'Adventure': { background: '#d1ecf1', text: '#0c5460', accent: '#17a2b8' },
+            'Drama': { background: '#2d1c3bff', text: '#b932bbff', accent: '#6f42c1' },
+            'Crime drama': { background: '#2a3338ff', text: '#6b94c9ff', accent: '#6f42c1' },
+            'Action': { background: '#50352eff', text: '#a0522d', accent: '#fd7e14' },
+            'Adventure': { background: '#273d41ff', text: '#1ba0b8ff', accent: '#17a2b8' },
             'Thriller': { background: '#2c2c2c', text: '#ffffff', accent: '#343a40' },
             'Mystery': { background: '#343a40', text: '#ffffff', accent: '#495057' },
             
             // Documentary & Educational
-            'Documentary': { background: '#e8f5e8', text: '#2d5a2d', accent: '#198754' },
-            'Educational': { background: '#e7f3ff', text: '#004085', accent: '#0d6efd' },
-            'Science': { background: '#f0f8ff', text: '#003d82', accent: '#0066cc' },
-            'History': { background: '#f5f5dc', text: '#8b4513', accent: '#d2691e' },
-            'Biography': { background: '#f0e68c', text: '#556b2f', accent: '#9acd32' },
+            'Documentary': { background: '#254125ff', text: '#5cbb5cff', accent: '#198754' },
+            'Educational': { background: '#1b2733ff', text: '#066ad6ff', accent: '#0d6efd' },
+            'Science': { background: '#204a6eff', text: '#003d82', accent: '#0066cc' },
+            'History': { background: '#575715ff', text: '#8b4513', accent: '#d2691e' },
+            'Biography': { background: '#243d24ff', text: '#a9d45eff', accent: '#9acd32' },
             
             // News & Information
             'News': { background: '#490b0bff', text: '#ffffff', accent: '#886262ff' },
@@ -599,31 +583,31 @@ class TVGuide {
             // Movies
             'Movie': { background: '#4c1d95', text: '#ffffff', accent: '#5b21b6' },
             'Horror': { background: '#991b1b', text: '#ffffff', accent: '#7f1d1d' },
-            'Romance': { background: '#ec4899', text: '#ffffff', accent: '#db2777' },
+            'Romance': { background: '#72224aff', text: '#ffffff', accent: '#db2777' },
             'Western': { background: '#a16207', text: '#ffffff', accent: '#92400e' },
             'Sci-Fi': { background: '#1e40af', text: '#ffffff', accent: '#1d4ed8' },
             
             // Children & Family
-            'Children': { background: '#fbbf24', text: '#92400e', accent: '#f59e0b' },
-            'Family': { background: '#34d399', text: '#065f46', accent: '#10b981' },
-            'Animation': { background: '#f472b6', text: '#831843', accent: '#ec4899' },
-            'Cartoon': { background: '#a78bfa', text: '#4c1d95', accent: '#8b5cf6' },
+            'Children': { background: '#574a2bff', text: '#e06213ff', accent: '#f59e0b' },
+            'Family': { background: '#124d37ff', text: '#0ed39bff', accent: '#10b981' },
+            'Animation': { background: '#3b1026ff', text: '#d42a6eff', accent: '#ec4899' },
+            'Cartoon': { background: '#271f3dff', text: '#702adaff', accent: '#8b5cf6' },
             
             // Music & Arts
-            'Music': { background: '#f97316', text: '#ffffff', accent: '#ea580c' },
-            'Concert': { background: '#7c2d12', text: '#ffffff', accent: '#9a3412' },
-            'Arts': { background: '#0891b2', text: '#ffffff', accent: '#0e7490' },
-            'Cultural': { background: '#be185d', text: '#ffffff', accent: '#a21caf' },
+            'Music': { background: '#3a2719ff', text: '#ffffff', accent: '#ea580c' },
+            'Concert': { background: '#301006ff', text: '#ffffff', accent: '#9a3412' },
+            'Arts': { background: '#054a5cff', text: '#ffffff', accent: '#0e7490' },
+            'Cultural': { background: '#4d0925ff', text: '#ffffff', accent: '#a21caf' },
             
             // Lifestyle
-            'Cooking': { background: '#dc2626', text: '#ffffff', accent: '#b91c1c' },
-            'Travel': { background: '#0d9488', text: '#ffffff', accent: '#0f766e' },
-            'Health': { background: '#16a34a', text: '#ffffff', accent: '#15803d' },
-            'Fashion': { background: '#d946ef', text: '#ffffff', accent: '#c026d3' },
-            'Home': { background: '#2563eb', text: '#ffffff', accent: '#1d4ed8' },
+            'Cooking': { background: '#4e0c0cff', text: '#ffffff', accent: '#b91c1c' },
+            'Travel': { background: '#074e48ff', text: '#ffffff', accent: '#0f766e' },
+            'Health': { background: '#073b1aff', text: '#ffffff', accent: '#15803d' },
+            'Fashion': { background: '#481650ff', text: '#ffffff', accent: '#c026d3' },
+            'Home': { background: '#0b204eff', text: '#ffffff', accent: '#1d4ed8' },
             
             // Special Categories
-            'Shopping': { background: '#f97316', text: '#ffffff', accent: '#ea580c' },
+            'Shopping': { background: '#502506ff', text: '#ffffff', accent: '#ea580c' },
             'Paid Programming': { background: '#6b7280', text: '#ffffff', accent: '#4b5563' },
             'Religious': { background: '#7c3aed', text: '#ffffff', accent: '#6d28d9' },
             'Foreign': { background: '#0891b2', text: '#ffffff', accent: '#0e7490' },
@@ -631,12 +615,12 @@ class TVGuide {
             // TV Show Types
             'Series': { background: '#3730a3', text: '#ffffff', accent: '#4338ca' },
             'Mini-Series': { background: '#5b21b6', text: '#ffffff', accent: '#6d28d9' },
-            'Special': { background: '#be123c', text: '#ffffff', accent: '#e11d48' },
-            'Premiere': { background: '#dc2626', text: '#ffffff', accent: '#b91c1c' }
+            'Special': { background: '#55081bff', text: '#ffffff', accent: '#e11d48' },
+            'Premiere': { background: '#570e0eff', text: '#ffffff', accent: '#b91c1c' }
         };
         
         // Default color for unknown categories
-        const defaultColor = { background: '#f8f9fa', text: '#495057', accent: '#6c757d' };
+        const defaultColor = { background: '#253c53ff', text: '#495057', accent: '#6c757d' };
         
         return categoryColors[category] || defaultColor;
     }
