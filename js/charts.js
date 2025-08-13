@@ -1,3 +1,8 @@
+// Use appConfig for weather data URLs
+const weatherDataUrl = window.appConfig.weatherDataUrl;
+const curvesJsonUrl = window.appConfig.curvesJsonUrl;
+const forecastJsonUrl = window.appConfig.forecastJsonUrl;
+
 // page prep: hide the warning banner and set auto-refresh timeouts
 $(document).ready(function(){
     $("#warning-header").hide();
@@ -23,8 +28,7 @@ displayCurrentTime();
 // fetch data from the weather server
 function getCurrentWeatherData() {
     $.ajax({
-        //url: "http://weather.fishparts.net/weather.json",
-        url: "../assets/weather.json",
+        url: weatherDataUrl,
         success:
             function (result) {
                 var t_now = new Date();
@@ -124,8 +128,7 @@ function drawLineChart() {
     var ctx = $element1.getContext("2d");
 
     $.ajax({
-        //url: 'http://weather.fishparts.net/curves.json',
-        url: "../assets/curves.json",
+        url: curvesJsonUrl,
         dataType: 'json',
     }).done(function (results) {
         var processedData = processData(results.last24);
@@ -221,8 +224,7 @@ drawLineChart();
 
 function getForecastData() {
     $.ajax({
-        //url: "http://weather.fishparts.net/forecast.json",
-        url: "../assets/forecast.json",
+        url: forecastJsonUrl,
         success:
             function (result) {
                 var t_now = new Date();
