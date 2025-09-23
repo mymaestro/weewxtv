@@ -500,3 +500,10 @@ body {
     line-height: 1.4;
   }
 }
+
+/* Dark theme for temperature chart */
+#tempGraph1 {
+  background-color: #1a1a1a !important;
+  border-radius: 8px;
+  padding: 10px;
+}

@@ -13,8 +13,8 @@ class TVGuide {
         this.viewStartTime = new Date();
         this.timeSlotDuration = 30; // 30 minutes per slot
         this.totalSlots = 6; // 3 hours = 6 slots of 30 minutes (more horizontal)
-        this.slotWidth = 350; // Wider slots for larger text
-        this.channelWidth = 300; // Wider channel column
+        this.slotWidth = 300; // Wider slots for larger text
+        this.channelWidth = 200; // Wider channel column
         this.init();
     }
 
@@ -29,6 +29,8 @@ class TVGuide {
     setupEventListeners() {
         $('#currentTime').on('click', () => {
             this.viewStartTime = new Date();
+            this.viewStartTime.setHours(this.viewStartTime.getHours() + 1); // Show one hour ahead
+            this.viewStartTime.setMinutes(0, 0, 0); // Round to the hour
             this.renderEPG();
         });
 
@@ -192,8 +194,9 @@ class TVGuide {
 
     adjustTimeForData() {
         // Since the XML data is current (August 4, 2025), we can use actual current time
-        // But round to the nearest hour for better display
+        // But round to the nearest hour for better display and show one hour ahead
         this.viewStartTime = new Date();
+        this.viewStartTime.setHours(this.viewStartTime.getHours() + 1); // Add one hour ahead
         this.viewStartTime.setMinutes(0, 0, 0);
         
         // If there are programs, verify we have data for the current time period
@@ -558,7 +561,7 @@ class TVGuide {
             // Documentary & Educational
             'Documentary': { background: '#254125ff', text: '#5cbb5cff', accent: '#198754' },
             'Educational': { background: '#1b2733ff', text: '#066ad6ff', accent: '#0d6efd' },
-            'Science': { background: '#204a6eff', text: '#003d82', accent: '#0066cc' },
+            'Science': { background: '#204a6eff', text: '#0665d1ff', accent: '#0066cc' },
             'History': { background: '#575715ff', text: '#8b4513', accent: '#d2691e' },
             'Biography': { background: '#243d24ff', text: '#a9d45eff', accent: '#9acd32' },
             
@@ -615,7 +618,7 @@ class TVGuide {
         };
         
         // Default color for unknown categories
-        const defaultColor = { background: '#253c53ff', text: '#495057', accent: '#6c757d' };
+        const defaultColor = { background: '#253c53ff', text: '#bac2caff', accent: '#6c757d' };
         
         return categoryColors[category] || defaultColor;
     }

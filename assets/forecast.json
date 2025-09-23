@@ -1,0 +1,105 @@
+{
+  "current" : {
+    "datetime" : "1758592800"
+  },
+  "forecast": [
+          {
+            "count": 1,
+            "date": "09/22",
+            "day": "Mon",
+            "cover": "CL",
+            "hitemp": "85",
+            "lotemp": "85",
+            "wind": "",
+            "winddir": "S",
+            "windspeedmin": "9",
+            "windspeedmax": "9",
+            "precipchance": "N/A",
+            "preciptypes": ""
+        },
+          {
+            "count": 2,
+            "date": "09/23",
+            "day": "Tue",
+            "cover": "SC",
+            "hitemp": "99",
+            "lotemp": "75",
+            "wind": "",
+            "winddir": "S",
+            "windspeedmin": "5",
+            "windspeedmax": "10",
+            "precipchance": "5",
+            "preciptypes": ""
+        },
+          {
+            "count": 3,
+            "date": "09/24",
+            "day": "Wed",
+            "cover": "SC",
+            "hitemp": "93",
+            "lotemp": "76",
+            "wind": "",
+            "winddir": "S",
+            "windspeedmin": "3",
+            "windspeedmax": "9",
+            "precipchance": "70",
+            "preciptypes": "rainshwrs tstms"
+        },
+          {
+            "count": 4,
+            "date": "09/25",
+            "day": "Thu",
+            "cover": "B1",
+            "hitemp": "88",
+            "lotemp": "71",
+            "wind": "GN",
+            "winddir": "N",
+            "windspeedmin": "2",
+            "windspeedmax": "5",
+            "precipchance": "40",
+            "preciptypes": "rainshwrs tstms"
+        },
+          {
+            "count": 5,
+            "date": "09/26",
+            "day": "Fri",
+            "cover": "FW",
+            "hitemp": "90",
+            "lotemp": "63",
+            "wind": "LT",
+            "winddir": "N",
+            "windspeedmin": "   N/A",
+            "windspeedmax": "   N/A",
+            "precipchance": "5",
+            "preciptypes": ""
+        },
+          {
+            "count": 6,
+            "date": "09/27",
+            "day": "Sat",
+            "cover": "FW",
+            "hitemp": "91",
+            "lotemp": "62",
+            "wind": "LT",
+            "winddir": "E",
+            "windspeedmin": "   N/A",
+            "windspeedmax": "   N/A",
+            "precipchance": "10",
+            "preciptypes": ""
+        },
+          {
+            "count": 7,
+            "date": "09/28",
+            "day": "Sun",
+            "cover": "FW",
+            "hitemp": "91",
+            "lotemp": "62",
+            "wind": "LT",
+            "winddir": "SE",
+            "windspeedmin": "   N/A",
+            "windspeedmax": "   N/A",
+            "precipchance": "10",
+            "preciptypes": ""
+        }
+   ]
+}

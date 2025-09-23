@@ -132,6 +132,9 @@ function drawLineChart() {
 
     var $element1 = document.getElementById("tempGraph1");
     var ctx = $element1.getContext("2d");
+    
+    // Set dark background for the canvas
+    $element1.style.backgroundColor = '#1a1a1a';
 
     $.ajax({
         url: curvesJsonUrl,
@@ -143,25 +146,29 @@ function drawLineChart() {
             datasets: [{
                 label: 'Temperature',
                 fill: false,
-		borderColor: "black",
+		borderColor: "#FFD700", // Gold
+		borderWidth: 2,
 	        pointRadius: 0,
                 data: processedData.temperature
             }, {
                 label: 'Dew point',
                 fill: false,
-		borderColor: "green",
+		borderColor: "#00FF7F", // Spring green
+		borderWidth: 2,
 	        pointRadius: 0,
                 data: processedData.dewpoint
             }, {
 	        label: 'Wind chill',
 	        fill: false,
-		borderColor: "blue",
+		borderColor: "#87CEEB", // Sky blue
+		borderWidth: 2,
 	        pointRadius: 0,
 	        data: processedData.windchill
 	    }, {
 	        label: 'Heat index',
 	        fill: false,
-		borderColor: "red",
+		borderColor: "#FF6B6B", // Coral/light red
+		borderWidth: 2,
 	        pointRadius: 0,
 	        data: processedData.heat_index
 	    }]
@@ -176,12 +183,39 @@ function drawLineChart() {
                     display: false,
                     text: "Today's temperature and dew point"
                 },
+                legend: {
+                    labels: {
+                        fontColor: '#FFFFFF'
+                    }
+                },
                 scales: {
                     xAxes: [{
                         ticks: {
-                            display: false
+                            display: false,
+                            fontColor: '#FFFFFF'
+                        },
+                        gridLines: {
+                            color: '#555555'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: '#FFFFFF'
+                        },
+                        gridLines: {
+                            color: '#555555'
                         }
                     }]
+                },
+                plugins: {
+                    filler: {
+                        propagate: false
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
                 }
             }
         });
