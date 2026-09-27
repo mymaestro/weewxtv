@@ -117,14 +117,16 @@ class TVGuide {
         $(xml).find('channel').each((index, channelElement) => {
             const $channel = $(channelElement);
             const channelId = $channel.attr('id');
-            const displayName = $channel.find('display-name').first().text();
-            const shortName = $channel.find('display-name').eq(4).text() || displayName;
-            const channelNumber = $channel.find('display-name').eq(2).text();
+            const displayNames = $channel.find('display-name').map((index, element) => $(element).text()).get();
+            const displayName = displayNames[0] || '';
+            const shortName = displayNames[4] || displayName;
+            const channelNumber = displayNames[2] || '';
             const iconSrc = $channel.find('icon').attr('src');
 
             this.channels.push({
                 id: channelId,
                 displayName: displayName,
+                displayNames: displayNames,
                 shortName: shortName,
                 channelNumber: channelNumber,
                 iconSrc: iconSrc
@@ -275,9 +277,16 @@ class TVGuide {
         const selectedChannels = Object.entries(channelMap).map(([label, id]) => ({ label, id }));
         let gridHTML = '';
         selectedChannels.forEach(sel => {
-            const channel = this.channels.find(c => c.id === sel.id);
             const [channelNumber, ...callsignParts] = sel.label.split(' ');
             const callsign = callsignParts.join(' ');
+            const normalize = value => value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+            const normalizedNumber = normalize(channelNumber);
+            const normalizedCallsign = normalize(callsign);
+            const channel = this.channels.find(c => c.id === sel.id) || this.channels.find(c =>
+                normalizedNumber && normalizedCallsign &&
+                c.displayNames.some(name => normalize(name) === normalizedNumber) &&
+                c.displayNames.some(name => normalize(name) === normalizedCallsign)
+            );
             if (channel) {
                 channel.displayNumber = channelNumber;
                 channel.displayCallsign = callsign;

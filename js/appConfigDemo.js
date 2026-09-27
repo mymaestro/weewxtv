@@ -8,11 +8,11 @@ const appConfig = {
     curvesJsonUrl: "http://tv.local/assets/curves.json", // URL for curves.json weather data
     forecastJsonUrl: "http://tv.local/assets/forecast.json", // URL for forecast.json weather data
     channelMap: {
-        "7-1 KTBCDT": "I31222.labs.zap2it.com",
-        "24-1 KVUEDT": "I33585.labs.zap2it.com",
-        "36-1 KXANDT": "I25147.labs.zap2it.com",
-        "36-3 KXANDT3": "I40468.labs.zap2it.com",
-        "42-1 KEYEDT": "I33424.labs.zap2it.com"
+        "7-1 KTBCDT": "I31222.json.schedulesdirect.org",
+        "24-1 KVUEDT": "I33585.json.schedulesdirect.org",
+        "36-1 KXANDT": "I25147.json.schedulesdirect.org",
+        "36-3 KXANDT3": "I40468.json.schedulesdirect.org",
+        "42-1 KEYEDT": "I33424.json.schedulesdirect.org"
         // Add more channels as needed
     }
 };

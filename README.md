@@ -25,7 +25,7 @@ const appConfig = {
     forecastJsonUrl: "http://yourserver/assets/forecast.json",
     tvXmlUrl: "http://yourserver/assets/tv.xml",
     channelMap: {
-        "7-1 KTBCDT": "I31222.labs.zap2it.com",
+        "7-1 KTBCDT": "I31222.json.schedulesdirect.org",
         // ...more channels...
     }
 };
@@ -44,7 +44,7 @@ If a data source cannot be loaded, a warning message will appear at the top of t
 - Data sources (weather JSON, XMLTV) accessible via HTTP(S)
 
 ## Data sources
-- XMLTV project, uses tv_grab_na_dd to retrieve programming data from SchedulesDirect.org
+- XMLTV listings are retrieved from Schedules Direct with `tv_grab_zz_sdjson`. Channel IDs use the `.json.schedulesdirect.org` format. The EPG first matches configured channels by ID and can fall back to matching the channel number and callsign in the `channelMap` label.
 - Weather data, in JSON format, is created by adding 3 templates to your weewx skin. Templates are provided in the assets folder.
 
 ## License
